@@ -1,0 +1,14 @@
+<p>principal works!</p>
+<div *ngIf="familias">
+    <select (change)="cargaItemsFamilia($event)"  >
+        <option *ngFor="let familia of  familias" [value]="familia.id" >{{familia.description}}</option>
+    </select>
+</div>
+<div *ngIf="listaArticulos">
+    <select (click)="muestraArticulo($event.target)"  >
+        <option value="" disabled selected></option>
+        <option *ngFor="let articulo of  listaArticulos" [value]="articulo.id" >{{articulo.description}}</option>
+    </select>
+    <pre>{{listaArticulos| json}}</pre>
+</div>
+
