@@ -14,9 +14,9 @@ export class SeleccionPestannaDirective {
 
   @Input() set seleccionado(valor:boolean){
     if(valor){ // hecho click en esta pestaña
-      this.htmlElement.nativeElement.classList.add("active");
+      this.htmlElement.nativeElement.classList.add("active2");
     }else{
-      this.htmlElement.nativeElement.classList.remove("active");
+      this.htmlElement.nativeElement.classList.remove("active2");
     }
   }
 

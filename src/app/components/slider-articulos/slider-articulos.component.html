@@ -3,8 +3,10 @@
 <div id="controlesCarrusel" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner w-75 " style="margin: auto;" >
 
-    <div class="carousel-item " *ngFor="let articulo of listaArticulos; let i = index" [class.active] = "i == 0" (click)="muestraArticulo(articulo)">
-      <img [src]="articulo.pictureUrl" class="d-block w-100" [alt]="articulo.description">
+    <div class="carousel-item "  *ngFor="let articulo of listaArticulos; let i = index" [class.active] = "i == 0" (click)="muestraArticulo(articulo)">
+      <div class=" w-50 d-flex" style="margin: auto;">
+        <img [src]="articulo.pictureUrl" class="d-block w-100" [alt]="articulo.description">
+      </div>
     </div>
 
   </div>

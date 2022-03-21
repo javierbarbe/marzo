@@ -3,7 +3,7 @@ p-carousel {
   width: 50% !important;
 }
 
-.active {
+.active2 {
   box-shadow: inset 0 0 1px rgb(184, 6, 74);
   transition: box-shadow 0.2s ease-in;
   -webkit-box-shadow: inset 0px -6px 0 0px rgb(184, 6, 74);
