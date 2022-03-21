@@ -29,7 +29,7 @@ export class PrincipalComponent implements OnInit {
 
   pestannaElegida(id:number): boolean {
     let resultado:boolean = false;
-    (this.idElegido == id) ? resultado = true :  resultado = false;
+    (this.idElegido === id) ? resultado = true :  resultado = false;
     return resultado;
   }
 

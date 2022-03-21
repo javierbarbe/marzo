@@ -14,17 +14,10 @@ export class BbddService {
   constructor(private http:HttpClient) { }
   private _urlBasica:string = environment.url;
 
-  //  headers = new HttpHeaders({
-  //   'Content-Type': 'application/json',
-  //   'Access-Control-Allow-Origin': '*',
-  //   'Access-Control-Allow-Headers': 'Content-Type',
-  //   'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
-  //   'Authorization': 'Bearer szdp79a2kz4wh4frjzuqu4sz6qeth8m3',
-  // });
+
 
    getListaArticulosPorFamilia(idFamilia:number) : Observable<ArticuloFamilia[]>{
     const url = `${this._urlBasica}/item/list/${idFamilia}`;
-    console.log("la url es",url);
 
     return this.http.get<ArticuloFamilia[]>(url)
                 .pipe(
@@ -35,20 +28,18 @@ export class BbddService {
    getFamiliasArticulos():Observable<Familia[]>{
 
     const url = `${this._urlBasica}/family/list`;
-    console.log("la url es",url);
     return this.http.get<Familia[]>(url)
                 .pipe(
                   map((el:Familia[])=>  el )
-                
+
                 )
 
    }
 
-  
+
 
    getArticuloPorId(idArticulo:number): Observable<Articulo>{
     const url = `${this._urlBasica}/item/${idArticulo}`;
-    console.log("la url es",url);
 
     return this.http.get<Articulo>(url)
                 .pipe(

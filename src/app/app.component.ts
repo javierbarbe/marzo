@@ -9,6 +9,7 @@ export class AppComponent {
   title = 'marchProyect';
 
 constructor(private primengConfig : PrimeNGConfig){
+  // configuracion funcionamiento de directiva ripple
   this.primengConfig.ripple = true;
 }
 
