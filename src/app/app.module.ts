@@ -6,17 +6,25 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PrincipalComponent } from './home/principal/principal.component';
 import { PrimeNgModule } from './prime-ng/prime-ng.module';
+import { FamiliaComponent } from './components/familia/familia.component';
+import { SliderArticulosComponent } from './components/slider-articulos/slider-articulos.component';
+import { SeleccionPestannaDirective } from './directives/seleccion-pestanna.directive';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    FamiliaComponent,
+    SliderArticulosComponent,
+    SeleccionPestannaDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    PrimeNgModule
+    PrimeNgModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

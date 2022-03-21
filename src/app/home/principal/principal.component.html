@@ -1,14 +1,23 @@
-<p>principal works!</p>
-<div *ngIf="familias">
-    <select (change)="cargaItemsFamilia($event)"  >
-        <option *ngFor="let familia of  familias" [value]="familia.id" >{{familia.description}}</option>
-    </select>
+
+<div class="mt-4" style="width: 100vw;display: flex; justify-content: center;">
+    <img style="width: 90%; margin: auto; max-height: 120px; max-width: 1000px;" src="../../../assets/logo-krama-horizontal.svg" alt="">
 </div>
-<div *ngIf="listaArticulos">
-    <select (click)="muestraArticulo($event.target)"  >
-        <option value="" disabled selected></option>
-        <option *ngFor="let articulo of  listaArticulos" [value]="articulo.id" >{{articulo.description}}</option>
-    </select>
-    <pre>{{listaArticulos| json}}</pre>
+<div class="container w-75 mt-4" style="margin: auto;">
+    <h3>Elija familia de articulos</h3>
+    <div class="row familia m-4 bg-light">
+        <div *ngFor="let familia of familias" 
+            (click)="cambiaFamiliaCarrousel(familia)"
+            seleccionPestanna [seleccionado]="pestannaElegida(familia.id)"
+            class="col text-center clickable">
+          <div class="d-flex caja justify-content-center "  >
+              <span class="align-self-center justify-self-center p-2" >{{familia.description}}</span>
+          </div>
+        </div>
+    </div>
 </div>
+
+<div class="contenedorSlider" style="margin: auto;">
+    <app-slider-articulos [listaArticulos]="listaArticulos"></app-slider-articulos>
+</div>
+
 

@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+p-carousel{
+    width: 50%  !important;
+}
+
+.active{
+	/* background-color: cornflowerblue;
+	color: white; */
+    /* text-decoration: underline 2px  rgb(184, 6, 74); */
+    border-bottom:solid 2px  rgb(184, 6, 74); 
+    
+    transition: border-bottom .1s ease-in;
+}
+
+.p-dialog{
+    background-color: white !important;
+}

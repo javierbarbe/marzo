@@ -1,0 +1,8 @@
+.cajaArticulo {
+    max-height: 280px;
+    margin: 50px;
+}
+.cajaArticulo img {
+    height: 180px;
+    margin: 20px;
+}

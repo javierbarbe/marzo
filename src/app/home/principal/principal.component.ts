@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { BbddService } from '../../services/bbdd.service';
 import { Familia } from '../../interfaces/Familia';
 import { ArticuloFamilia } from '../../interfaces/ArticuloFamilia';
@@ -9,39 +9,37 @@ import { ArticuloFamilia } from '../../interfaces/ArticuloFamilia';
   styleUrls: ['./principal.component.css']
 })
 export class PrincipalComponent implements OnInit {
- familias!: Familia[];
- listaArticulos!: ArticuloFamilia[];
-  constructor(private bbdd : BbddService) {
-  
+  familias!: Familia[];
+  idElegido:number = 0;
+  listaArticulos!: ArticuloFamilia[];
+  constructor(private bbdd: BbddService, private render: Renderer2) {
+
     this.bbdd.getFamiliasArticulos()
-    .subscribe(res=> {
-      this.familias = res;
-    });
-    this.bbdd.getListaArticulosPorFamilia(1).subscribe(res=> {
+      .subscribe(res => {
+        this.familias = res;
+      });
+    this.bbdd.getListaArticulosPorFamilia(1).subscribe(res => {
       this.listaArticulos = res;
     });
 
-   }
+  }
 
   ngOnInit(): void {
   }
 
-  cargaItemsFamilia(event:any){
-    const nuevoId = event.target.value;
-    console.log("ha cambiado el select",nuevoId);
-    this.bbdd.getListaArticulosPorFamilia(nuevoId).subscribe(nuevalista=> {
+  pestannaElegida(id:number): boolean {
+    let resultado:boolean = false;
+    (this.idElegido == id) ? resultado = true :  resultado = false;
+    return resultado;
+  }
+
+  cambiaFamiliaCarrousel( familia: Familia) {
+    console.log(familia);
+    const { id } = familia;
+    this.idElegido = id;
+    this.bbdd.getListaArticulosPorFamilia(id).subscribe(nuevalista => {
       this.listaArticulos = nuevalista;
     })
   }
-  muestraArticulo(target: any)
-  {
- const idArticulo = target.value;
- if(!idArticulo){
-   return;
- }
- console.log(idArticulo);
- this.bbdd.getArticuloPorId(idArticulo).subscribe(articulo=> {
-   console.log(articulo);
- })
-  }
+
 }

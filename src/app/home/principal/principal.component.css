@@ -1,0 +1,50 @@
+/* Opacity #2 */
+/* .caja span {
+	background: #1abc9c;
+}
+.caja span {
+	opacity: 1;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.caja:hover span {
+	opacity: .5;
+} */
+
+/* Opacity #2 */
+.hover12 figure {
+	background: #1abc9c;
+}
+.hover12 figure span {
+	opacity: 1;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.hover12 figure:hover span {
+	opacity: .5;
+}
+
+.clickable{
+	cursor: pointer;
+	
+}
+
+.contenedorSlider{
+	width: 70%;
+}
+
+.familia div:hover {
+	background-color: cornflowerblue;
+	color: white;
+}
+
+
+/* .active{
+	background-color: cornflowerblue;
+	color: white;
+} */
+@media (max-width: 550px) {
+	.contenedorSlider {
+		width: 100%;
+	}
+  }
