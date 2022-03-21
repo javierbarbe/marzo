@@ -10,5 +10,10 @@
 .carousel-control-next-icon{
   color: black;
 }
+.carousel-item .w-50 {
+  margin: auto;
+}
 
-
+.botonSlider{
+  background-color: blueviolet; border-radius: 30%; padding: 5px;
+}
