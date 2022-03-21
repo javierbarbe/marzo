@@ -1,3 +1,4 @@
+import { BbddService } from './../../services/bbdd.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { Articulo } from '../../interfaces/Articulo';
 import { ArticuloFamilia } from '../../interfaces/ArticuloFamilia';
@@ -7,46 +8,53 @@ import { ArticuloFamilia } from '../../interfaces/ArticuloFamilia';
   templateUrl: './slider-articulos.component.html',
   styleUrls: ['./slider-articulos.component.css']
 })
-export class SliderArticulosComponent implements OnInit {
+export class SliderArticulosComponent  {
 
 
   displayModal: boolean = false;
+  articuloAMostrar!:Articulo;
+  responsiveOptions: any[];
+
   showModalDialog() {
     this.displayModal = true;
 }
 
-  // responsiveOptions: any[];
-  constructor() {
-
-  //   this.responsiveOptions = [
-  //     // {
-  //     //     breakpoint: '1024px',
-  //     //     numVisible: 3,
-  //     //     numScroll: 3
-  //     // },
-  //     // {
-  //     //     breakpoint: '768px',
-  //     //     numVisible: 2,
-  //     //     numScroll: 1
-  //     // },
-  //     // {
-  //     //     breakpoint: '560px',
-  //     //     numVisible: 1,
-  //     //     numScroll: 1
-  //     // }
-  // ];
+  constructor(private bbdd: BbddService) {
+ // opciones primeng responsive
+    this.responsiveOptions = [
+      {
+          breakpoint: '1024px',
+          numVisible: 1,
+          numScroll: 1
+      },
+      {
+          breakpoint: '768px',
+          numVisible: 1,
+          numScroll: 1
+      },
+      {
+          breakpoint: '560px',
+          numVisible: 1,
+          numScroll: 1
+      }
+  ];
 
    }
   @Input() listaArticulos:ArticuloFamilia[] = [];
-  // articuloPrincipal!:ArticuloFamilia;
-  ngOnInit(): void {
-    // if(!this.listaArticulos) return;
-    // this.articuloPrincipal = this.listaArticulos[0];
-  }
 
-  muestraArticulo(articulo: Articulo) {
+
+  muestraArticulo(articulo: ArticuloFamilia) {
     // el articulo a hacer popUp
     console.log(articulo);
+    this.bbdd.getArticuloPorId(articulo.id)
+      .subscribe(articulo => {
+        this.articuloAMostrar = articulo;
+        this.showModalDialog();
+      })
+  }
+
+  cerrarModal(){
+    this.displayModal = false;
   }
 
 }

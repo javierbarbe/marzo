@@ -5,12 +5,12 @@
 <div class="container w-75 mt-4" style="margin: auto;">
     <h3>Elija familia de articulos</h3>
     <div class="row familia m-4 bg-light">
-        <div *ngFor="let familia of familias" 
+        <div *ngFor="let familia of familias" pRipple
             (click)="cambiaFamiliaCarrousel(familia)"
             seleccionPestanna [seleccionado]="pestannaElegida(familia.id)"
-            class="col text-center clickable">
+            class="col-xs-12 col-md-4 text-center clickable green">
           <div class="d-flex caja justify-content-center "  >
-              <span class="align-self-center justify-self-center p-2" >{{familia.description}}</span>
+              <span   class="align-self-center justify-self-center p-2 " >{{familia.description}}</span>
           </div>
         </div>
     </div>
